@@ -1,5 +1,8 @@
 # django-jchart
 
+This is a fork of the django-jchart project. It adds a global javascript variable to reference the created chart, so you can do things like
+change axis min and max dynamically.
+
 [![Build Status](https://travis-ci.org/matthisk/django-jchart.svg?branch=master)](https://travis-ci.org/matthisk/django-jchart) [![Coverage Status](https://coveralls.io/repos/github/matthisk/django-jchart/badge.svg?branch=master)](https://coveralls.io/github/matthisk/django-jchart?branch=master)
 [![PyPI version](https://badge.fury.io/py/django-jchart.svg)](https://badge.fury.io/py/django-jchart)
 
