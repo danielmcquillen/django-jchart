@@ -25,11 +25,12 @@ class Chart(object):
     options = None
 
     def __init__(self, height=None, width=None,
-                 html_id=None, json_encoder_class=DjangoJSONEncoder):
+                 html_id=None, js_id=None, json_encoder_class=DjangoJSONEncoder):
         self.height = height
         self.width = width
         self.json_encoder_class = json_encoder_class
         self.html_id = html_id
+        self.js_id = js_id
 
         if ((height is not None or width is not None) and
                 (self.responsive is None or self.responsive)):
@@ -41,6 +42,11 @@ class Chart(object):
 
     def _gen_html_id(self):
         return self.html_id or 'chart-{}'.format(uuid.uuid4())
+
+    def _gen_js_id(self):
+        return self.js_id or "chart-js-{}".format(uuid.uuid4().replace("-","_"))
+
+        return self.js_id
 
     def _get_options(self):
         option_keys = {'scales', 'layout', 'title', 'legend',
@@ -107,6 +113,7 @@ class Chart(object):
     def as_html(self, *args, **kwargs):
         context = {
             'html_id': self._gen_html_id(),
+            'js_id': self._gen_js_id(),
             'chart': self,
             'chart_configuration': self.get_configuration(*args, **kwargs),
         }
