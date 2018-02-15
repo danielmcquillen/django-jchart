@@ -44,9 +44,7 @@ class Chart(object):
         return self.html_id or 'chart-{}'.format(uuid.uuid4())
 
     def _gen_js_id(self):
-        return self.js_id or "chart-js-{}".format(uuid.uuid4().replace("-","_"))
-
-        return self.js_id
+        return self.js_id or "chart_js_{}".format(str(uuid.uuid4()).replace("-","_"))
 
     def _get_options(self):
         option_keys = {'scales', 'layout', 'title', 'legend',
