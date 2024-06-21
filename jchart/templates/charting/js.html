@@ -9,8 +9,7 @@
   });
 
   window.addEventListener("htmx:afterSwap", function() {
-      const element = document.getElementById("{{ wavelength_chart.html_id }}");
-      console.log("element", element);
+      const element = document.getElementById("{{ html_id }}");
       var ctx = element.getContext("2d");
       new Chart(ctx, {{ wavelength_chart.chart_configuration|safe }});
   });
