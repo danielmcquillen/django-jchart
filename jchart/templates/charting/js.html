@@ -1,10 +1,17 @@
 <script type="text/javascript">
-	
-	// iBio: adding a global variable so we can hook up JS functions
-	// for things like changing x axis via radio buttons
-	
-window.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById("{{ html_id }}").getContext("2d");
-    window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
-});
+
+  	// iBio: adding a global variable so we can hook up JS functions
+  	// for things like changing x axis via radio buttons
+
+  window.addEventListener("DOMContentLoaded", function() {
+      var ctx = document.getElementById("{{ html_id }}").getContext("2d");
+      window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
+  });
+
+  window.addEventListener("htmx:afterSwap", function() {
+      const element = document.getElementById("{{ wavelength_chart.html_id }}");
+      console.log("element", element);
+      var ctx = element.getContext("2d");
+      new Chart(ctx, {{ wavelength_chart.chart_configuration|safe }});
+  });
 </script>
