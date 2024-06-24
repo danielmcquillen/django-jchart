@@ -1,11 +1,12 @@
 <script type="text/javascript">
 
-  	// iBio: adding a global variable so we can hook up JS functions
-  	// for things like changing x axis via radio buttons
+   function loadProductDetailChart() {
+       var ctx = document.getElementById("{{ html_id }}").getContext("2d");
+       window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
+   }
 
-  window.addEventListener("DOMContentLoaded", function() {
-      var ctx = document.getElementById("{{ html_id }}").getContext("2d");
-      window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
-  });
+   window.addEventListener("DOMContentLoaded", function() {
+       loadProductDetailChart();
+   });
 
 </script>
