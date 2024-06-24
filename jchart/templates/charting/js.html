@@ -8,9 +8,4 @@
       window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
   });
 
-  window.addEventListener("htmx:afterSettle", function() {
-      const element = document.getElementById("{{ html_id }}");
-      var ctx = element.getContext("2d");
-      new Chart(ctx, {{ wavelength_chart.chart_configuration|safe }});
-  });
 </script>
