@@ -1,12 +1,9 @@
 <script type="text/javascript">
-
-   function loadProductDetailChart() {
-       var ctx = document.getElementById("{{ html_id }}").getContext("2d");
-       window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
-   }
-
-   window.addEventListener("DOMContentLoaded", function() {
-       loadProductDetailChart();
-   });
-
+  /* Move this script to checkertool */
+  /*
+    window.addEventListener("DOMContentLoaded", function() {
+        var ctx = document.getElementById("{{ html_id }}").getContext("2d");
+        window.{{js_id}} = new Chart(ctx, {{ chart_configuration|safe }});
+    });
+    */
 </script>
